@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact,removeContact, setFilter } from 'contactsSlice';
 import { Section } from "./Section/Section"
