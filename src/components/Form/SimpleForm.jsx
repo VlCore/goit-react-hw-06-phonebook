@@ -47,7 +47,7 @@ export const SimpleForm = ({onAddContact}) => {
                 type="text"
                 name="name"
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                    placeholder='Jone Smit'
+                    placeholder='Name Surname'
                 />
                 <ErrMassage component="p" name="name" />
             </InputContainer>
@@ -58,7 +58,7 @@ export const SimpleForm = ({onAddContact}) => {
                     type="tel"
                     name="number"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                    placeholder='+380-55-555-55-55'
+                    placeholder='+380-27-222-27-27'
                     />
                 <ErrMassage component="p" name="number" />
             </InputContainer>

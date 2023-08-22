@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+// import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { addContact,removeContact, setFilter } from 'redux/contactsSlice';
 import { Section } from "./Section/Section"
@@ -12,17 +12,6 @@ import { Container, GeneralTitle } from "./App.styled";
     const dispatch = useDispatch();
     const contacts = useSelector(state => state.contacts.contacts);
     const filter = useSelector(state => state.contacts.filter);
-  
-    useEffect(() => {
-      const localStorageContacts = JSON.parse(localStorage.getItem('root'));
-      if (localStorageContacts) {
-        dispatch(addContact(localStorageContacts));
-      }
-    }, [dispatch]);
-  
-    useEffect(() => {
-      localStorage.setItem('root', JSON.stringify(contacts));
-    }, [contacts]);
   
     const onAddContact = user => {
       if (contacts.find(el => el.name === user.name)) {
