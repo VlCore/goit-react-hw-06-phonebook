@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact,removeContact, setFilter } from 'contactsSlice';
+import { addContact,removeContact, setFilter } from 'redux/contactsSlice';
 import { Section } from "./Section/Section"
 import { SimpleForm } from "./Form/SimpleForm";
 import { nanoid } from 'nanoid'
@@ -14,14 +14,14 @@ import { Container, GeneralTitle } from "./App.styled";
     const filter = useSelector(state => state.contacts.filter);
   
     useEffect(() => {
-      const localStorageContacts = JSON.parse(localStorage.getItem('PhoneBookContacts'));
+      const localStorageContacts = JSON.parse(localStorage.getItem('root'));
       if (localStorageContacts) {
         dispatch(addContact(localStorageContacts));
       }
     }, [dispatch]);
   
     useEffect(() => {
-      localStorage.setItem('PhoneBookContacts', JSON.stringify(contacts));
+      localStorage.setItem('root', JSON.stringify(contacts));
     }, [contacts]);
   
     const onAddContact = user => {
@@ -29,7 +29,7 @@ import { Container, GeneralTitle } from "./App.styled";
         alert(`${user.name} is already in contacts`);
         return;
       }
-      dispatch(addContact({ ...user, id: nanoid() }));
+      dispatch(addContact([{ ...user, id: nanoid() }]));
     };
   
     const onChangedFilter = ({ target: { value } }) => {
@@ -52,10 +52,12 @@ import { Container, GeneralTitle } from "./App.styled";
         </Section>
   
         <Section title="Contacts">
-          <ContactsList contacts={contacts.contacts} filterValue={filter} removeContact={handleRemoveContact} />
+          <ContactsList contacts={contacts} filterValue={filter} removeContact={handleRemoveContact} />
         </Section>
       </Container>
     );
   };
   
   export default App;
+
+  

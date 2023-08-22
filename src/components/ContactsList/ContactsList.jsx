@@ -2,7 +2,8 @@ import { Contact } from "./Contact/Contact"
 import PropTypes from 'prop-types';
 import { List } from "./ContactsList.styled";
 
-export const ContactsList = ({ contacts = [], filterValue, removeContact }) => {
+export const ContactsList = ({ contacts, filterValue, removeContact }) => {
+    
     const filteredContacts = contacts.filter(contact =>
         contact.name && contact.name.toLowerCase().includes(filterValue.toLowerCase())
     );
