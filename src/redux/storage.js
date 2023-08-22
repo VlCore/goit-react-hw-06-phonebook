@@ -3,7 +3,7 @@ import contactsReducer from './contactsSlice'
 
 import {
     persistStore,
-    persistReducer,
+    // persistReducer
     FLUSH,
     REHYDRATE,
     PAUSE,
@@ -11,12 +11,12 @@ import {
     PURGE,
     REGISTER,
   } from 'redux-persist'
-  import storage from 'redux-persist/lib/storage'
-const persistConfig = {
-  key: 'root',
-  version: 1,
-  storage,
-}
+//   import storage from 'redux-persist/lib/storage'
+// const persistConfig = {
+//   key: 'root',
+//   version: 1,
+//   storage,
+// }
 
   
 const store = configureStore({
